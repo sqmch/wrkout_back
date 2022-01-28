@@ -7,7 +7,7 @@ from wrkout2_back.database import SessionLocal, engine
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-models.Base.metadata.create_all(bind=engine)
+# models.Base.metadata.create_all(bind=engine)
 
 
 app = FastAPI()
@@ -72,3 +72,16 @@ def create_routine_for_user(
 def read_routine(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     routines = crud.get_routines(db, skip=skip, limit=limit)
     return routines
+
+
+@app.post("/routines/{routine_id}/exercises/", response_model=schemas.Exercise)
+def create_exercise(
+    routine_id: int, exercise: schemas.ExerciseCreate, db: Session = Depends(get_db)
+):
+    return crud.create_exercise(db=db, exercise=exercise, routine_id=routine_id)
+
+
+@app.get("/exercises/", response_model=List[schemas.Exercise])
+def read_exercises(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    exercises = crud.get_exercises(db, skip=skip, limit=limit)
+    return exercises

@@ -33,3 +33,16 @@ def create_user_routine(db: Session, routine: schemas.RoutineCreate, user_id: in
     db.commit()
     db.refresh(db_routine)
     return db_routine
+
+
+def create_exercise(db: Session, exercise: schemas.ExerciseCreate, routine_id: int):
+    """Add new exercise to db"""
+    db_exercise = models.Exercise(**exercise.dict(), owner_id=routine_id)
+    db.add(db_exercise)
+    db.commit()
+    db.refresh(db_exercise)
+    return db_exercise
+
+
+def get_exercises(db: Session, skip: int = 0, limit: int = 100):
+    return db.query(models.Exercise).offset(skip).limit(limit).all()

@@ -1,6 +1,31 @@
+from pydoc import describe
 from typing import List, Optional
 
 from pydantic import BaseModel
+
+
+class ExerciseBase(BaseModel):
+    """Base pydantic model for exercise models"""
+
+    title: str
+    description: Optional[str] = None
+    rest_time: Optional[int] = 90
+
+
+class ExerciseCreate(ExerciseBase):
+    """Base pydantic model for exercise creation"""
+
+
+class Exercise(ExerciseBase):
+    """Pydantic model for an exercise"""
+
+    id: int
+    owner_id: int
+
+    class Config:
+        """Config class for Routine"""
+
+        orm_mode = True
 
 
 class RoutineBase(BaseModel):
@@ -8,7 +33,7 @@ class RoutineBase(BaseModel):
 
     title: str
     description: Optional[str] = None
-    exercises: str
+    exercises: List[Exercise]
 
 
 class RoutineCreate(RoutineBase):
@@ -44,7 +69,7 @@ class User(UserBase):
 
     id: int
     is_active: bool
-    routines: List
+    routines: List[Routine]
 
     class Config:
         """Config class for User"""

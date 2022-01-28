@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from shop_backend_fromdocs import models, schemas
+from wrkout2_back import models, schemas
 
 
 def get_user(db: Session, user_id: int):

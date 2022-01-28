@@ -2,12 +2,12 @@ from typing import List
 
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
-from shop_backend_fromdocs import crud, models, schemas
-from shop_backend_fromdocs.database import SessionLocal, engine
+from wrkout2_back import crud, models, schemas
+from wrkout2_back.database import SessionLocal, engine
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-#  models.Base.metadata.create_all(bind=engine)
+models.Base.metadata.create_all(bind=engine)
 
 
 app = FastAPI()

@@ -1,6 +1,6 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
-from shop_backend_fromdocs.database import Base
+from wrkout2_back.database import Base
 
 
 class User(Base):
@@ -12,7 +12,7 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     hashed_password = Column(String)
     is_active = Column(Boolean, default=True)
-    routines = relationship("WorkoutRoutine", back_populates="owner")
+    routines = relationship("Routine", back_populates="owner")
 
 
 class Routine(Base):

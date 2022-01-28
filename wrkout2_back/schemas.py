@@ -8,7 +8,7 @@ class RoutineBase(BaseModel):
 
     title: str
     description: Optional[str] = None
-    exercises: List = []
+    exercises: str
 
 
 class RoutineCreate(RoutineBase):
@@ -44,7 +44,7 @@ class User(UserBase):
 
     id: int
     is_active: bool
-    routines: List[Routine] = []
+    routines: List
 
     class Config:
         """Config class for User"""

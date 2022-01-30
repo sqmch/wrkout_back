@@ -4,6 +4,13 @@ from typing import List, Optional
 from pydantic import BaseModel
 
 
+class AuthDetails(BaseModel):
+    """Base pydantic model for authorization credentials"""
+
+    username: str
+    password: str
+
+
 class ExerciseBase(BaseModel):
     """Base pydantic model for exercise models"""
 

@@ -20,7 +20,7 @@ origins = [
     "http://localhost",
     "http://localhost:3000",
     "http://localhost:3001",
-    "https://wrkout1.herokuapp.com",
+    "https://wrkout1.netlify.app",
 ]
 
 app.add_middleware(

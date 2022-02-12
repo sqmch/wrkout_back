@@ -1,14 +1,5 @@
-from pydoc import describe
 from typing import List, Optional
-
 from pydantic import BaseModel
-
-
-class AuthDetails(BaseModel):
-    """Base pydantic model for authorization credentials"""
-
-    username: str
-    password: str
 
 
 class ExerciseBase(BaseModel):
@@ -40,7 +31,7 @@ class RoutineBase(BaseModel):
 
     title: str
     description: Optional[str] = None
-    exercises: List[Exercise]
+    exercises: Optional[List[Exercise]] = []
 
 
 class RoutineCreate(RoutineBase):
@@ -62,7 +53,7 @@ class Routine(RoutineBase):
 class UserBase(BaseModel):
     """Base pydantic class for User models"""
 
-    email: str
+    username: str
 
 
 class UserCreate(UserBase):
@@ -75,6 +66,7 @@ class User(UserBase):
     """Pydantic model for a user"""
 
     id: int
+    hashed_password: str
     is_active: bool
     routines: List[Routine]
 

@@ -1,90 +1,52 @@
-appdirs==1.4.4
-asgiref==3.4.1
-astroid==2.9.2
-attrs==19.3.0
-Automat==0.8.0
-black==21.7b0
-blinker==1.4
-certifi==2019.11.28
-chardet==3.0.4
-click==8.0.1
-colorama==0.4.3
-command-not-found==0.3
-configobj==5.0.6
-constantly==15.1.0
-cryptography==2.8
-dbus-python==1.2.16
-distro==1.4.0
-distro-info===0.23ubuntu1
-Django==3.2.8
-entrypoints==0.3
-flake8==3.9.2
-h11==0.9.0
-httplib2==0.14.0
-hyperlink==19.0.0
-idna==2.8
-importlib-metadata==1.5.0
-incremental==16.10.1
-isort==5.10.1
-Jinja2==2.10.1
-jsonpatch==1.22
-jsonpointer==2.0
-jsonschema==3.2.0
-keyring==18.0.1
-language-selector==0.1
-launchpadlib==1.10.13
-lazr.restfulclient==0.14.2
-lazr.uri==1.0.3
-lazy-object-proxy==1.7.1
-MarkupSafe==1.1.0
-mccabe==0.6.1
-more-itertools==4.2.0
-mypy-extensions==0.4.3
-netifaces==0.10.4
-oauthlib==3.1.0
-pathspec==0.9.0
-pexpect==4.6.0
-platformdirs==2.4.1
-pyasn1==0.4.2
-pyasn1-modules==0.2.1
-pycodestyle==2.7.0
-pyflakes==2.3.1
-PyGObject==3.36.0
-PyHamcrest==1.9.0
-PyJWT==1.7.1
-pylint==2.12.2
-pymacaroons==0.13.0
-PyNaCl==1.3.0
-pyOpenSSL==19.0.0
-pyrsistent==0.15.5
-pyserial==3.4
-python-apt==2.0.0+ubuntu0.20.4.6
-python-debian===0.1.36ubuntu1
-pytz==2021.3
-PyYAML==5.3.1
-regex==2021.8.21
-requests==2.22.0
-requests-unixsocket==0.2.0
-SecretStorage==2.3.1
-service-identity==18.1.0
-simplejson==3.16.0
-six==1.14.0
-sos==4.1
-sqlparse==0.4.2
-ssh-import-id==5.10
-systemd-python==234
-toml==0.10.2
-tomli==1.2.1
-Twisted==18.9.0
-typing-extensions==4.0.1
-ubuntu-advantage-tools==27.4
-ufw==0.36
-unattended-upgrades==0.1
-urllib3==1.25.8
-uvicorn==0.11.3
-wadllib==1.3.3
-websockets==8.1
-wrapt==1.13.3
-wsproto==0.15.0
-zipp==1.0.0
-zope.interface==4.7.1
+alembic @ file:///home/sqaku/.cache/pypoetry/artifacts/20/86/c8/c4454dfd1a62bd5b924d53f2b2026863c07a41f4d0f2db3962a1478ad6/alembic-1.7.5-py3-none-any.whl
+anyio @ file:///home/sqaku/.cache/pypoetry/artifacts/63/43/c9/e8e5ed05999967e19649070833666dadc43f0a48ba8df7c8c54bc0fc0b/anyio-3.5.0-py3-none-any.whl
+asgiref @ file:///home/sqaku/.cache/pypoetry/artifacts/12/c6/58/b461520efbe0ac0a67261f2d665156c3efabcc6392f021f3db62abbd51/asgiref-3.5.0-py3-none-any.whl
+attrs @ file:///home/sqaku/.cache/pypoetry/artifacts/9a/27/ab/6895b786f345452394b42c1fdbe863803d0396e675b632c01cb13cad92/attrs-21.4.0-py2.py3-none-any.whl
+bcrypt @ file:///home/sqaku/.cache/pypoetry/artifacts/50/8a/94/784ff14289b1a491747087298470519190d1e6bf9d42c78eb517715ad4/bcrypt-3.2.0-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl
+certifi @ file:///home/sqaku/.cache/pypoetry/artifacts/77/74/3e/daf57610ff13227e3b3f50a78487055f6ac94cc9363abd2463be34c5e9/certifi-2021.10.8-py2.py3-none-any.whl
+cffi @ file:///home/sqaku/.cache/pypoetry/artifacts/62/c3/29/c16154cce4786b02879598f3745b0a55c96f76bec9c5c8175be8d5cd71/cffi-1.15.0-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl
+charset-normalizer @ file:///home/sqaku/.cache/pypoetry/artifacts/29/08/0b/18a5b01605aa22aab30518fc8cb6c0777890b2b9b842f7a691b70ec4a7/charset_normalizer-2.0.10-py3-none-any.whl
+click @ file:///home/sqaku/.cache/pypoetry/artifacts/3c/f6/a3/2262df8f5a6f3de5bbc78cc13803c60524c8384dce76661fdfe3df975f/click-8.0.3-py3-none-any.whl
+dnspython @ file:///home/sqaku/.cache/pypoetry/artifacts/0d/f5/44/a0d10f7fc9c77d3a817b3b76de128d9da063626c78d91e0cdd689fe296/dnspython-2.2.0-py3-none-any.whl
+email-validator @ file:///home/sqaku/.cache/pypoetry/artifacts/0a/33/4e/21841a05c81e20a58ba8f5291baa54daabf8248d6d9518e93673c4f8c2/email_validator-1.1.3-py2.py3-none-any.whl
+fastapi @ file:///home/sqaku/.cache/pypoetry/artifacts/ab/ae/aa/3902980e87b8af9c4ea769a55f18363659e83fc5ebb977c82e27900e83/fastapi-0.73.0-py3-none-any.whl
+greenlet @ file:///home/sqaku/.cache/pypoetry/artifacts/b3/f0/eb/79b793c70b50de453930861de26715a48f4f7ff1969adf045ec83a3a8a/greenlet-1.1.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+h11 @ file:///home/sqaku/.cache/pypoetry/artifacts/bc/d7/e2/6d144112b0c47a5ee4e22c53b271dc73b63c1e64e15aca149164758406/h11-0.13.0-py3-none-any.whl
+httptools @ file:///home/sqaku/.cache/pypoetry/artifacts/a0/ff/85/5e75e61c4e572f4fe02d60bf5231c7972cdf251bd9a3cbdb074c83ad05/httptools-0.2.0-cp38-cp38-manylinux1_x86_64.whl
+idna @ file:///home/sqaku/.cache/pypoetry/artifacts/f7/09/c9/8e80952436ff87855ddff4891a35ecf913b2b5dc97911f02a070ff2b1f/idna-3.3-py3-none-any.whl
+importlib-metadata @ file:///home/sqaku/.cache/pypoetry/artifacts/a8/d5/30/d668843e0cb7464050feb34caea24874aba660b3e054d84e9278d53859/importlib_metadata-4.10.1-py3-none-any.whl
+importlib-resources @ file:///home/sqaku/.cache/pypoetry/artifacts/ee/4c/eb/2664cb1195ed4f08e5c07470436d77d74497c851583656c66927effd25/importlib_resources-5.4.0-py3-none-any.whl
+itsdangerous @ file:///home/sqaku/.cache/pypoetry/artifacts/3c/f1/0c/8a71f1217bc7a47b34e2e273a3d34bbf19671b6d17202ac9787937fabf/itsdangerous-2.0.1-py3-none-any.whl
+Jinja2 @ file:///home/sqaku/.cache/pypoetry/artifacts/f9/9a/d1/31d24b6a14d80530d2950db31fe7d51612fc7508b3648575c0fc5ea988/Jinja2-3.0.3-py3-none-any.whl
+Mako @ file:///home/sqaku/.cache/pypoetry/artifacts/d8/66/22/2c814b2182937b9ba5fe20d0c4f11fdd1493d97fce66b33ff056f24939/Mako-1.1.6-py2.py3-none-any.whl
+MarkupSafe @ file:///home/sqaku/.cache/pypoetry/artifacts/11/6e/95/f2f04f7850f90b0ebc7410054662217e97d362ea6a688ad27994232123/MarkupSafe-2.0.1-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl
+more-itertools @ file:///home/sqaku/.cache/pypoetry/artifacts/ef/04/3c/cde360772e23ed0a5f61cdbbe79d28f3a9680c45072b4fb9c5eb1ecd00/more_itertools-8.12.0-py3-none-any.whl
+orjson @ file:///home/sqaku/.cache/pypoetry/artifacts/48/a4/42/19f1e6a1b961cb501db3744e8976caf8735d6707a43c787cdc575c6037/orjson-3.6.6-cp38-cp38-manylinux_2_24_x86_64.whl
+packaging @ file:///home/sqaku/.cache/pypoetry/artifacts/7f/d5/4c/1d3c4776012fc0bbe1f86e69bde2c5e36d2d32caa2e4845ac1fc08ab3f/packaging-21.3-py3-none-any.whl
+passlib @ file:///home/sqaku/.cache/pypoetry/artifacts/db/de/9e/08025cca001c8daaa351c3a17f944714534b58b356daeeff58167d0e56/passlib-1.7.4-py2.py3-none-any.whl
+pluggy @ file:///home/sqaku/.cache/pypoetry/artifacts/9c/e5/0b/2d64d03361a081edeb5d2ec5f286ccf9719587781fbf6822e1b6384c27/pluggy-0.13.1-py2.py3-none-any.whl
+psycopg2-binary @ file:///home/sqaku/.cache/pypoetry/artifacts/4a/ed/de/071fa3a73b804a5dd0dae503f658ac55d848e30f02ed08b7566493955a/psycopg2_binary-2.9.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+py @ file:///home/sqaku/.cache/pypoetry/artifacts/ab/b4/c3/a3971fd0d6ab5a2e40a43ad7b809005422d7cf333f7be6ccdfe9002e1b/py-1.11.0-py2.py3-none-any.whl
+pycparser @ file:///home/sqaku/.cache/pypoetry/artifacts/7a/f7/3b/fd50e9d7e1c02d2d2e8631fca716f6b6ffe3742f322e4a170eb3f2f41b/pycparser-2.21-py2.py3-none-any.whl
+pydantic @ file:///home/sqaku/.cache/pypoetry/artifacts/98/35/5c/34da00fdd0cfe3b76503325a96ea4d2313ceb365e3e522d00d9b39cf7d/pydantic-1.9.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+PyJWT @ file:///home/sqaku/.cache/pypoetry/artifacts/7c/13/04/3e4aa78f6ee3ee721315e24346fe7226d1fc7330485447a1ce5d1151c7/PyJWT-2.3.0-py3-none-any.whl
+pyparsing @ file:///home/sqaku/.cache/pypoetry/artifacts/8a/67/7c/c21f632fb8255d9fc3882ed4548b0270011ef2a160a6031635274760a2/pyparsing-3.0.7-py3-none-any.whl
+pytest @ file:///home/sqaku/.cache/pypoetry/artifacts/9d/40/6b/50d2cb06df545acea43c65379c5456f4fbc703115a703bc7cd433ddf70/pytest-5.4.3-py3-none-any.whl
+python-dotenv @ file:///home/sqaku/.cache/pypoetry/artifacts/39/c6/39/44401635efa5c70e07ec351be6c1bebaf003e9fe11de23479ef6f6d3f2/python_dotenv-0.19.2-py2.py3-none-any.whl
+python-multipart @ file:///home/sqaku/.cache/pypoetry/artifacts/34/1a/77/57e28cd2dc00bc0ec60258333cd5a23b5fffc3cd38f9c6eae0fba81c17/python-multipart-0.0.5.tar.gz
+PyYAML @ file:///home/sqaku/.cache/pypoetry/artifacts/f7/d9/62/83fb890c5915cc3c7a919097a61e93e54d7a3c47832b2f91e38224359d/PyYAML-5.4.1-cp38-cp38-manylinux1_x86_64.whl
+requests @ file:///home/sqaku/.cache/pypoetry/artifacts/dc/17/bf/8d9779110a13421f6181028974b24800ec70f28bf9b311411e1868b8c7/requests-2.27.1-py2.py3-none-any.whl
+six @ file:///home/sqaku/.cache/pypoetry/artifacts/48/e6/04/8118155ae3ec3a16dd2a213bbf7a7d8a62c596b2e90f73a22c896269f1/six-1.16.0-py2.py3-none-any.whl
+sniffio @ file:///home/sqaku/.cache/pypoetry/artifacts/d0/91/b7/e6203dd46faa656f9ddf9a16cfbc3e51a56fa709d69642affedb2e0eff/sniffio-1.2.0-py3-none-any.whl
+SQLAlchemy @ file:///home/sqaku/.cache/pypoetry/artifacts/17/24/8c/51f07d29a96b14962e1673aa57a017bbcd73044087293fe4b51f9d2892/SQLAlchemy-1.4.31-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+starlette @ file:///home/sqaku/.cache/pypoetry/artifacts/87/0f/66/b3afc6fcd3ad50262f82f503cd78e1eab19237ab417cf4c564a6d33e25/starlette-0.17.1-py3-none-any.whl
+typing_extensions @ file:///home/sqaku/.cache/pypoetry/artifacts/da/25/4f/38edfb1c3dd33665d6fc2c563dfb5debfcd3204ffc6943c80f09f8d54b/typing_extensions-4.0.1-py3-none-any.whl
+ujson @ file:///home/sqaku/.cache/pypoetry/artifacts/a7/e9/a5/65d825655ee7e7f7deea7bb2fe94d1873a88e099263a76c5d916de55e6/ujson-4.3.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+urllib3 @ file:///home/sqaku/.cache/pypoetry/artifacts/66/2a/bb/22b56fafb85086d3ee6c6807644cffcd5fa6fc2bc537780143368ab6a9/urllib3-1.26.8-py2.py3-none-any.whl
+uvicorn @ file:///home/sqaku/.cache/pypoetry/artifacts/d6/51/09/63dbce8261b02576dbbc98f94c7aa8dcde399b5547089552a21b997784/uvicorn-0.15.0-py3-none-any.whl
+uvloop @ file:///home/sqaku/.cache/pypoetry/artifacts/54/e0/de/84a2b77de9e7cf6c39856123ddd5442b58380c898496505c0a4476904e/uvloop-0.16.0-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl
+watchgod @ file:///home/sqaku/.cache/pypoetry/artifacts/6c/6a/26/d4250285a3207b6e31b03cafa7b8fa8d0859175a65ef243b8373c8a40f/watchgod-0.7-py3-none-any.whl
+wcwidth @ file:///home/sqaku/.cache/pypoetry/artifacts/36/68/e2/7232f431072d5e8aeec124120b9a1d095d45da10311d271fac10982473/wcwidth-0.2.5-py2.py3-none-any.whl
+websockets @ file:///home/sqaku/.cache/pypoetry/artifacts/36/a8/46/95a917dbe44161771b1c91f382fa920fd4da37d1c6b22420dd77cf67fb/websockets-10.1-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl
+wrkout2-back==0.1.0
+zipp @ file:///home/sqaku/.cache/pypoetry/artifacts/54/a2/32/50907f67584b845d6877c7e224c118ff1db66fc6aed6c6ef86b22ed57f/zipp-3.7.0-py3-none-any.whl

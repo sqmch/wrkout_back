@@ -26,3 +26,5 @@ Run FastAPI:
 ```python
 uvicorn wrkout2_back.main:app --reload
 ```
+
+Note that this is the backend repo, you can find the frontend repo [here.](https://github.com/sqmch/wrkout_front)

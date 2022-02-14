@@ -54,6 +54,33 @@ def create_user_routine(db: Session, routine: schemas.RoutineCreate, user_id: in
     return db_routine
 
 
+def update_routine(db: Session, routine: schemas.Routine, user_id: int, id: int):
+    """Edit routine details in db"""
+    # db_exercise = models.Exercise(**exercise.dict(), owner_id=routine_id)
+    print("dict ", routine.dict())
+    db_routine = db.query(models.Routine).filter_by(id=id, owner_id=user_id)
+    print("1. --- " + str(db_routine))
+    db_routine.update(routine.dict(), synchronize_session=False)
+    print("2. --- " + str(db_routine))
+
+    db.commit()
+    db_routine = schemas.Routine(**routine.dict(), owner_id=user_id, id=id)
+    print("3. --- " + str(db_routine))
+
+    return db_routine
+
+
+def update_exercise(db: Session, exercise: schemas.Exercise, routine_id: int, id: int):
+    """Edit exercise details in db"""
+    # db_exercise = models.Exercise(**exercise.dict(), owner_id=routine_id)
+
+    db_exercise = db.query(models.Exercise).filter_by(id=id, owner_id=routine_id)
+    db_exercise.update(exercise.dict(), synchronize_session=False)
+    db.commit()
+    db_exercise = schemas.Exercise(**exercise.dict(), owner_id=routine_id, id=id)
+    return db_exercise
+
+
 def delete_user_routine(db: Session, routine_id: int, owner_id: int):
     """Deletes routine with user id from the db"""
     db.query(models.Exercise).filter(models.Exercise.owner_id == routine_id).delete()
@@ -67,17 +94,6 @@ def create_exercise(db: Session, exercise: schemas.ExerciseCreate, routine_id: i
     db.add(db_exercise)
     db.commit()
     db.refresh(db_exercise)
-    return db_exercise
-
-
-def update_exercise(db: Session, exercise: schemas.Exercise, routine_id: int, id: int):
-    """Edit exercise details in db"""
-    # db_exercise = models.Exercise(**exercise.dict(), owner_id=routine_id)
-
-    db_exercise = db.query(models.Exercise).filter_by(id=id, owner_id=routine_id)
-    db_exercise.update(exercise.dict(), synchronize_session=False)
-    db.commit()
-    db_exercise = schemas.Exercise(**exercise.dict(), owner_id=routine_id, id=id)
     return db_exercise
 
 

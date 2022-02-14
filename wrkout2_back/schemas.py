@@ -31,7 +31,6 @@ class RoutineBase(BaseModel):
 
     title: str
     description: Optional[str] = None
-    exercises: Optional[List[Exercise]] = []
 
 
 class RoutineCreate(RoutineBase):
@@ -43,6 +42,7 @@ class Routine(RoutineBase):
 
     id: int
     owner_id: int
+    exercises: Optional[List[Exercise]] = []
 
     class Config:
         """Config class for Routine"""

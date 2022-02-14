@@ -39,35 +39,3 @@ class Exercise(Base):
     rest_time = Column(Integer, index=True)
     owner_id = Column(Integer, ForeignKey("routines.id"))
     owner = relationship("Routine", back_populates="exercises")
-
-
-"""
-      op.create_table(
-        "users",
-        sa.Column("id", sa.Integer, primary_key=True),
-        sa.Column("email", sa.String, nullable=False),
-        sa.Column("hashed_password", sa.String, nullable=False),
-        sa.Column("is_active", sa.Boolean, nullable=False),
-        sa.Column("routines", sa.String),
-    )
-
-    op.create_table(
-        "routines",
-        sa.Column("id", sa.Integer, primary_key=True),
-        sa.Column("title", sa.String, nullable=False),
-        sa.Column("description", sa.String),
-        sa.Column("owner_id", sa.Integer, nullable=False),
-        sa.Column("owner", sa.String),
-        sa.Column("exercises", sa.String),
-    )
-    op.create_table(
-        "exercises",
-        sa.Column("id", sa.Integer, primary_key=True),
-        sa.Column("title", sa.String, nullable=False),
-        sa.Column("description", sa.String),
-        sa.Column("rest_time", sa.Integer),
-        sa.Column("owner_id", sa.Integer, nullable=False),
-        sa.Column("owner", sa.String),
-    )
-
-"""

@@ -108,6 +108,36 @@ def create_user_routine(
     return crud.create_user_routine(db=db, routine=routine, user_id=user_id)
 
 
+@app.put(
+    "/users/{user_id}/routines/{routine_id}",
+    response_model=schemas.RoutineCreate,
+)
+def update_routine(
+    user_id: int,
+    routine_id: int,
+    routine: schemas.RoutineCreate,
+    db: Session = Depends(get_db),
+):
+    """Endpoint for editing a workout routine"""
+    return crud.update_routine(db=db, routine=routine, user_id=user_id, id=routine_id)
+
+
+@app.put(
+    "/users/{user_id}/routines/{routine_id}/exercises/{exercise_id}",
+    response_model=schemas.ExerciseCreate,
+)
+def update_exercise(
+    routine_id: int,
+    exercise_id: int,
+    exercise: schemas.ExerciseCreate,
+    db: Session = Depends(get_db),
+):
+    """Endpoint for editing an exercise of a workout routine"""
+    return crud.update_exercise(
+        db=db, exercise=exercise, routine_id=routine_id, id=exercise_id
+    )
+
+
 @app.delete("/users/{user_id}/routines/{routine_id}")
 def delete_user_routine(routine_id: int, user_id: int, db: Session = Depends(get_db)):
     """Endpoint for deleting user specific workout routines"""
@@ -133,22 +163,6 @@ def create_exercise(
     routine_id: int, exercise: schemas.ExerciseCreate, db: Session = Depends(get_db)
 ):
     return crud.create_exercise(db=db, exercise=exercise, routine_id=routine_id)
-
-
-@app.put(
-    "/users/{user_id}/routines/{routine_id}/exercises/{exercise_id}",
-    response_model=schemas.ExerciseCreate,
-)
-def update_exercise(
-    routine_id: int,
-    exercise_id: int,
-    exercise: schemas.ExerciseCreate,
-    db: Session = Depends(get_db),
-):
-    """Endpoint for editing an exercise of a workout"""
-    return crud.update_exercise(
-        db=db, exercise=exercise, routine_id=routine_id, id=exercise_id
-    )
 
 
 @app.delete("/users/{user_id}/routines/{routine_id}/exercises/{exercise_id}")

@@ -94,7 +94,11 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
 
 
 @app.get("/users/{user_id}/routines", response_model=List[schemas.Routine])
-def read_user_routines(user_id: int, db: Session = Depends(get_db)):
+def read_user_routines(
+    user_id: int,
+    db: Session = Depends(get_db),
+    username=Depends(auth_handler.auth_wrapper),
+):
     db_user_routines = crud.get_user_routines(db, user_id=user_id)
     if db_user_routines is None:
         raise HTTPException(status_code=404, detail="Routines not found")
@@ -103,7 +107,10 @@ def read_user_routines(user_id: int, db: Session = Depends(get_db)):
 
 @app.post("/users/{user_id}/routines", response_model=schemas.Routine)
 def create_user_routine(
-    user_id: int, routine: schemas.RoutineCreate, db: Session = Depends(get_db)
+    user_id: int,
+    routine: schemas.RoutineCreate,
+    db: Session = Depends(get_db),
+    username=Depends(auth_handler.auth_wrapper),
 ):
     return crud.create_user_routine(db=db, routine=routine, user_id=user_id)
 

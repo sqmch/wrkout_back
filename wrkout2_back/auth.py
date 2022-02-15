@@ -1,3 +1,4 @@
+import os
 import jwt
 from fastapi import HTTPException, Security
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
@@ -10,7 +11,15 @@ class AuthHandler:
 
     security = HTTPBearer()
     pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-    secret = "SECRET123"
+
+    if os.environ.get("SECRET") is not None:
+        print("Setting SECRET to envrionment variable")
+        secret = os.environ.get("SECRET")
+    else:
+        print(
+            "Environment variable for SECRET not found, switching to development secret"
+        )
+        secret = "SECRET123"
 
     def get_password_hash(self, password):
         return self.pwd_context.hash(password)
@@ -20,7 +29,7 @@ class AuthHandler:
 
     def encode_token(self, user_id):
         payload = {
-            "exp": datetime.utcnow() + timedelta(days=0, minutes=1),
+            "exp": datetime.utcnow() + timedelta(days=0, minutes=0.5),
             "iat": datetime.utcnow(),
             "sub": user_id,
         }

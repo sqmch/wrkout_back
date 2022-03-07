@@ -50,6 +50,48 @@ class Routine(RoutineBase):
         orm_mode = True
 
 
+class PerformedExerciseBase(BaseModel):
+    """Pydantic class for creating performed exercises"""
+
+    title: str
+    reps: int
+
+
+class PerformedExercise(PerformedExerciseBase):
+    """Pydantic model for performed exercise"""
+
+    id: int
+    owner_id: int
+
+    class Config:
+        """Config class for Routine"""
+
+        orm_mode = True
+
+
+class PerformedRoutineBase(BaseModel):
+    """Base pydantic model for performed routine"""
+
+    title: str
+
+
+class PerformedRoutineCreate(PerformedRoutineBase):
+    """Base pydantic model for creating performed routines"""
+
+
+class PerformedRoutine(PerformedRoutineBase):
+    """Pydantic model for a performed routine"""
+
+    id: int
+    owner_id: int
+    performed_exercises: Optional[List[PerformedExercise]] = []
+
+    class Config:
+        """Config class for Routine"""
+
+        orm_mode = True
+
+
 class UserBase(BaseModel):
     """Base pydantic class for User models"""
 
@@ -69,6 +111,7 @@ class User(UserBase):
     hashed_password: str
     is_active: bool
     routines: List[Routine]
+    performed_routines: List[Routine]
 
     class Config:
         """Config class for User"""

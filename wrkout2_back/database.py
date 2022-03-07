@@ -12,7 +12,7 @@ except AttributeError:
     print(
         "Environment variable for DATABASE_URL not found, switching to development db"
     )
-    SQLALCHEMY_DATABASE_URL = "postgresql://tere:teretere@localhost:5432/wrkoutdb"
+    SQLALCHEMY_DATABASE_URL = "postgresql://qweqwe:qweqwe@localhost:5432/wrkoutdb"
 
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)

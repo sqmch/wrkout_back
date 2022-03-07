@@ -57,15 +57,10 @@ def create_user_routine(db: Session, routine: schemas.RoutineCreate, user_id: in
 def update_routine(db: Session, routine: schemas.Routine, user_id: int, id: int):
     """Edit routine details in db"""
     # db_exercise = models.Exercise(**exercise.dict(), owner_id=routine_id)
-    print("dict ", routine.dict())
     db_routine = db.query(models.Routine).filter_by(id=id, owner_id=user_id)
-    print("1. --- " + str(db_routine))
     db_routine.update(routine.dict(), synchronize_session=False)
-    print("2. --- " + str(db_routine))
-
     db.commit()
     db_routine = schemas.Routine(**routine.dict(), owner_id=user_id, id=id)
-    print("3. --- " + str(db_routine))
 
     return db_routine
 
@@ -101,3 +96,27 @@ def delete_exercise(db: Session, exercise_id: int, owner_id: int):
     """Deletes exercise from the db given the exercise id and owner routine id"""
     db.query(models.Exercise).filter_by(id=exercise_id, owner_id=owner_id).delete()
     db.commit()
+
+
+# Performed routines/exercises
+
+
+def create_performed_routine(
+    db: Session, routine: schemas.PerformedRoutineCreate, user_id: int
+):
+    db_routine = models.PerformedRoutine(**routine.dict(), owner_id=user_id)
+    db.add(db_routine)
+    db.commit()
+    db.refresh(db_routine)
+    return db_routine
+
+
+def create_performed_exercise(
+    db: Session, exercise: schemas.PerformedExerciseBase, routine_id: int
+):
+    """Add new exercise to db"""
+    db_exercise = models.PerformedExercise(**exercise.dict(), owner_id=routine_id)
+    db.add(db_exercise)
+    db.commit()
+    db.refresh(db_exercise)
+    return db_exercise

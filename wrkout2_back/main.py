@@ -107,10 +107,7 @@ def read_user_routines(
 
 @app.post("/users/{user_id}/routines", response_model=schemas.Routine)
 def create_user_routine(
-    user_id: int,
-    routine: schemas.RoutineCreate,
-    db: Session = Depends(get_db),
-    username=Depends(auth_handler.auth_wrapper),
+    user_id: int, routine: schemas.RoutineCreate, db: Session = Depends(get_db)
 ):
     return crud.create_user_routine(db=db, routine=routine, user_id=user_id)
 
@@ -190,3 +187,12 @@ def read_exercises(
 ):
     exercises = crud.get_exercises(db, routine_id=routine_id, skip=skip, limit=limit)
     return exercises
+
+
+@app.post(
+    "/users/{user_id}/performed_routines", response_model=schemas.PerformedRoutine
+)
+def create_performed_routine(
+    user_id: int, routine: schemas.PerformedRoutineCreate, db: Session = Depends(get_db)
+):
+    return crud.create_performed_routine(db=db, routine=routine, user_id=user_id)

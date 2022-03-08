@@ -107,7 +107,10 @@ def read_user_routines(
 
 @app.post("/users/{user_id}/routines", response_model=schemas.Routine)
 def create_user_routine(
-    user_id: int, routine: schemas.RoutineCreate, db: Session = Depends(get_db)
+    user_id: int,
+    routine: schemas.RoutineCreate,
+    db: Session = Depends(get_db),
+    username=Depends(auth_handler.auth_wrapper),
 ):
     return crud.create_user_routine(db=db, routine=routine, user_id=user_id)
 
@@ -121,6 +124,7 @@ def update_routine(
     routine_id: int,
     routine: schemas.RoutineCreate,
     db: Session = Depends(get_db),
+    username=Depends(auth_handler.auth_wrapper),
 ):
     """Endpoint for editing a workout routine"""
     return crud.update_routine(db=db, routine=routine, user_id=user_id, id=routine_id)
@@ -135,6 +139,7 @@ def update_exercise(
     exercise_id: int,
     exercise: schemas.ExerciseCreate,
     db: Session = Depends(get_db),
+    username=Depends(auth_handler.auth_wrapper),
 ):
     """Endpoint for editing an exercise of a workout routine"""
     return crud.update_exercise(
@@ -143,7 +148,12 @@ def update_exercise(
 
 
 @app.delete("/users/{user_id}/routines/{routine_id}")
-def delete_user_routine(routine_id: int, user_id: int, db: Session = Depends(get_db)):
+def delete_user_routine(
+    routine_id: int,
+    user_id: int,
+    db: Session = Depends(get_db),
+    username=Depends(auth_handler.auth_wrapper),
+):
     """Endpoint for deleting user specific workout routines"""
 
     crud.delete_user_routine(db=db, routine_id=routine_id, owner_id=user_id)
@@ -164,14 +174,20 @@ def read_routine(
     "/users/{user_id}/routines/{routine_id}/exercises/", response_model=schemas.Exercise
 )
 def create_exercise(
-    routine_id: int, exercise: schemas.ExerciseCreate, db: Session = Depends(get_db)
+    routine_id: int,
+    exercise: schemas.ExerciseCreate,
+    db: Session = Depends(get_db),
+    username=Depends(auth_handler.auth_wrapper),
 ):
     return crud.create_exercise(db=db, exercise=exercise, routine_id=routine_id)
 
 
 @app.delete("/users/{user_id}/routines/{routine_id}/exercises/{exercise_id}")
 def delete_user_routine_exercise(
-    routine_id: int, exercise_id: int, db: Session = Depends(get_db)
+    routine_id: int,
+    exercise_id: int,
+    db: Session = Depends(get_db),
+    username=Depends(auth_handler.auth_wrapper),
 ):
     """Endpoint for deleting user specific workout routines"""
 
@@ -183,7 +199,11 @@ def delete_user_routine_exercise(
     response_model=List[schemas.Exercise],
 )
 def read_exercises(
-    routine_id: int, skip: int = 0, limit: int = 100, db: Session = Depends(get_db)
+    routine_id: int,
+    skip: int = 0,
+    limit: int = 100,
+    db: Session = Depends(get_db),
+    username=Depends(auth_handler.auth_wrapper),
 ):
     exercises = crud.get_exercises(db, routine_id=routine_id, skip=skip, limit=limit)
     return exercises
@@ -193,6 +213,24 @@ def read_exercises(
     "/users/{user_id}/performed_routines", response_model=schemas.PerformedRoutine
 )
 def create_performed_routine(
-    user_id: int, routine: schemas.PerformedRoutineCreate, db: Session = Depends(get_db)
+    user_id: int,
+    routine: schemas.PerformedRoutineCreate,
+    db: Session = Depends(get_db),
+    username=Depends(auth_handler.auth_wrapper),
 ):
     return crud.create_performed_routine(db=db, routine=routine, user_id=user_id)
+
+
+@app.post(
+    "/users/{user_id}/performed_routines/{routine_id}/performed_exercises/",
+    response_model=schemas.PerformedExercise,
+)
+def create_performed_exercise(
+    routine_id: int,
+    exercise: schemas.PerformedExerciseCreate,
+    db: Session = Depends(get_db),
+    username=Depends(auth_handler.auth_wrapper),
+):
+    return crud.create_performed_exercise(
+        db=db, exercise=exercise, routine_id=routine_id
+    )

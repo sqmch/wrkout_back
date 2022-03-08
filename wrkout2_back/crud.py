@@ -112,7 +112,7 @@ def create_performed_routine(
 
 
 def create_performed_exercise(
-    db: Session, exercise: schemas.PerformedExerciseBase, routine_id: int
+    db: Session, exercise: schemas.PerformedExerciseCreate, routine_id: int
 ):
     """Add new exercise to db"""
     db_exercise = models.PerformedExercise(**exercise.dict(), owner_id=routine_id)

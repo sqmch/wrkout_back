@@ -50,14 +50,14 @@ class Routine(RoutineBase):
         orm_mode = True
 
 
-class PerformedExerciseBase(BaseModel):
+class PerformedExerciseCreate(BaseModel):
     """Pydantic class for creating performed exercises"""
 
     title: str
     reps: int
 
 
-class PerformedExercise(PerformedExerciseBase):
+class PerformedExercise(PerformedExerciseCreate):
     """Pydantic model for performed exercise"""
 
     id: int
@@ -111,7 +111,7 @@ class User(UserBase):
     hashed_password: str
     is_active: bool
     routines: List[Routine]
-    performed_routines: List[Routine]
+    performed_routines: List[PerformedRoutine]
 
     class Config:
         """Config class for User"""

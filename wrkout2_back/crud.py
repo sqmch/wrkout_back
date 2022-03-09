@@ -120,3 +120,8 @@ def create_performed_exercise(
     db.commit()
     db.refresh(db_exercise)
     return db_exercise
+
+
+"""
+def get_performed_routines(db: Session, user_id: int):
+    return db.query(models.Routine).filter(models.Routine.owner_id == user_id).all()"""

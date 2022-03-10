@@ -122,6 +122,12 @@ def create_performed_exercise(
     return db_exercise
 
 
-"""
-def get_performed_routines(db: Session, user_id: int):
-    return db.query(models.Routine).filter(models.Routine.owner_id == user_id).all()"""
+def get_performed_routines(db: Session, user_id: int, routine_title: str):
+    return (
+        db.query(models.PerformedRoutine)
+        .filter(
+            models.PerformedRoutine.owner_id == user_id,
+            models.PerformedRoutine.title == routine_title,
+        )
+        .all()
+    )

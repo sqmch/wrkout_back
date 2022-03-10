@@ -234,3 +234,18 @@ def create_performed_exercise(
     return crud.create_performed_exercise(
         db=db, exercise=exercise, routine_id=routine_id
     )
+
+
+@app.get(
+    "/users/{user_id}/performed_routines/{routine_title}",
+    response_model=List[schemas.PerformedRoutine],
+)
+def read_performed_routines(
+    user_id: int, routine_title: str, db: Session = Depends(get_db)
+):
+    db_performed_routines = crud.get_performed_routines(
+        db, user_id=user_id, routine_title=routine_title
+    )
+    if db_performed_routines is None:
+        raise HTTPException(status_code=404, detail="Performed routines not found")
+    return db_performed_routines

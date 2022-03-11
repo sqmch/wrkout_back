@@ -62,6 +62,7 @@ class PerformedExercise(Base):
     __tablename__ = "performed_exercises"
 
     id = Column(Integer, primary_key=True, index=True)
+    date = Column(DateTime(timezone=True), server_default=func.now())
     title = Column(String, index=True)
     reps = Column(Integer, index=True)
     owner_id = Column(Integer, ForeignKey("performed_routines.id"))

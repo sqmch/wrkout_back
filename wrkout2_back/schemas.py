@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import List, Optional
 from pydantic import BaseModel
 
@@ -62,6 +63,7 @@ class PerformedExercise(PerformedExerciseCreate):
 
     id: int
     owner_id: int
+    date: datetime
 
     class Config:
         """Config class for Routine"""

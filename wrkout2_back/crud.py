@@ -104,6 +104,7 @@ def delete_exercise(db: Session, exercise_id: int, owner_id: int):
 def create_performed_routine(
     db: Session, routine: schemas.PerformedRoutineCreate, user_id: int
 ):
+    """Creates a new performed routine"""
     db_routine = models.PerformedRoutine(**routine.dict(), owner_id=user_id)
     db.add(db_routine)
     db.commit()
@@ -123,11 +124,21 @@ def create_performed_exercise(
 
 
 def get_performed_routines(db: Session, user_id: int, routine_title: str):
+    """Returns all performed routines with specified user_id and routine_title"""
     return (
         db.query(models.PerformedRoutine)
         .filter(
             models.PerformedRoutine.owner_id == user_id,
             models.PerformedRoutine.title == routine_title,
         )
+        .all()
+    )
+
+
+def get_last_performed_routine(db: Session, user_id: int):
+    """Returns last completed routine"""
+    return (
+        db.query(models.PerformedRoutine)
+        .filter(models.PerformedRoutine.owner_id == user_id)
         .all()
     )

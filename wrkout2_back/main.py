@@ -243,6 +243,7 @@ def create_performed_exercise(
 def read_performed_routines(
     user_id: int, routine_title: str, db: Session = Depends(get_db)
 ):
+    """Returns all performed routines for specified user_id"""
     db_performed_routines = crud.get_performed_routines(
         db, user_id=user_id, routine_title=routine_title
     )
